@@ -23,17 +23,21 @@ def main():
 def has_repeated_sequence(num: str) -> bool:
     chunk_size = 1
     while True:
-        # The original number is not a sequence
-        if chunk_size == len(num):
-            return False
-        
-        chunks = get_chunk_list(num, chunk_size)
+        # Skip chunk sizes that don't divide cleanly
+        if len(num) % chunk_size == 0:
+            # The original number is not a sequence
+            if chunk_size == len(num):
+                return False
+            
+            chunks = get_chunk_list(num, chunk_size)
 
-        # If not a list of identical chunks, increase chunk size
-        if len(set(chunks)) != 1:
-            chunk_size += 1
+            # If not a list of identical chunks, increase chunk size
+            if len(set(chunks)) != 1:
+                chunk_size += 1
+            else:
+                return True # Found repeating sequence!
         else:
-            return True # Found repeating sequence!
+            chunk_size += 1
    
 def get_chunk_list(num: str, chunk_size: int) -> list:
     chunk_list = [num[i:i+chunk_size] for i in range(0, len(num), chunk_size)]
