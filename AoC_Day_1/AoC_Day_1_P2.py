@@ -1,5 +1,5 @@
 # Part two - Find how many times the dial passes zero as well as finishes on it
-def Main():
+def main():
     dial_position = 50
     puzzle_input = ['L68', 'L30', 'R48', 'L5', 'R60', 'L55', 'L1', 'L99', 'R14', 'L82'] # Test input
     solution = 0
@@ -34,3 +34,6 @@ def Main():
         print(f"Rotating {direction}{distance}, New dial position = {dial_position}")
 
     print(f"Times Zero pointed at or passed: {solution}")
+
+if __name__ == "__main__":
+    main()
