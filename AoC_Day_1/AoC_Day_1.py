@@ -34,6 +34,7 @@ def rotate_dial(distance, dial_position) -> int:
 
     return new_position
 
+
 # Part two - Find how many times the dial passes zero as well as finishes on it
 def part_two():
     dial_position = 50
