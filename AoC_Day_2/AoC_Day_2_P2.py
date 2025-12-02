@@ -1,3 +1,4 @@
+# Part two - Sum invalid IDs determined by AT LEAST 2 repeated sequences
 def main():
     puzzle_input = ['11-22','95-115','998-1012',
                     '1188511880-1188511890','222220-222224','1698522-1698528',
@@ -18,18 +19,25 @@ def main():
                print(f"Invalid ID found {pieces[0]}-{pieces[1]}: {num}")
     
     print(f"Sum of invalid IDs {invalid_id_sum}")
+
+def has_repeated_sequence(num: str) -> bool:
+    chunk_size = 1
+    while True:
+        # The original number is not a sequence
+        if chunk_size == len(num):
+            return False
         
+        chunks = get_chunk_list(num, chunk_size)
 
-def has_repeated_sequence(num) -> bool:
-    if len(num) % 2 != 0: # Can't halve odd lengths
-        return False
-    
-    first, second = num[:len(num)//2], num[len(num)//2:]
-    if int(first) == int(second):
-        return True
-    
-    return False
-
+        # If not a list of identical chunks, increase chunk size
+        if len(set(chunks)) != 1:
+            chunk_size += 1
+        else:
+            return True # Found repeating sequence!
+   
+def get_chunk_list(num: str, chunk_size: int) -> list:
+    chunk_list = [num[i:i+chunk_size] for i in range(0, len(num), chunk_size)]
+    return chunk_list
 
 if __name__ == "__main__":
     main()
