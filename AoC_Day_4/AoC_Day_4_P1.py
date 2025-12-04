@@ -1,3 +1,4 @@
+# Part one - How many rolls of paper have <4 adjacent rolls
 def main():
     puzzle_input = ['..@@.@@@@.',
                     '@@@.@.@.@@',
@@ -17,7 +18,7 @@ def main():
     # Row then Column
     for x in range(0, len(puzzle_input[0])):
         for y in range(0, len(puzzle_input)):
-            
+
             surrounding_rolls = 0
 
             # First, check if a roll at all
