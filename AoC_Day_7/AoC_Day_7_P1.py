@@ -47,8 +47,7 @@ def main():
 
     for line in puzzle_input:
         print(line)
-    print(total_splits)
-                
+    print(total_splits)           
 
 
 if __name__ == "__main__":
