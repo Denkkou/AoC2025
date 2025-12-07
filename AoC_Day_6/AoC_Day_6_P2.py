@@ -37,7 +37,6 @@ def main():
                 total += number
             else:
                 total *= number
-        print("Current total = ", total)
     grand_total += total # Catch final total
     print(grand_total)
 
