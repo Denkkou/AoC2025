@@ -29,7 +29,6 @@ def main():
 
             if puzzle_input[i][beam] == '^': 
                 # Splitter hit!
-                print(total_splits)
                 total_splits += 1
 
                 puzzle_input[i][beam-1] = '|'
@@ -39,20 +38,17 @@ def main():
                 beams_to_add.append(beam - 1)
                 beams_to_add.append(beam + 1)
                 beams_to_remove.append(beam)
+
+        # Tidy up beams
         for btr in beams_to_remove:
             beams_present_at.remove(btr)
         for bta in beams_to_add:
             beams_present_at.add(bta)
 
-
-
-
-
     for line in puzzle_input:
         print(line)
     print(total_splits)
                 
-
 
 
 if __name__ == "__main__":
